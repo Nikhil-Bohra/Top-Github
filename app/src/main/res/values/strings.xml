@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Top-Github</string>
     <string name="error_message">Error! Please try after sometime</string>
+    <string name="repo_detail_header">Repository Details</string>
+    <string name="link">Link :</string>
+    <string name="added_stars">Added Stars :</string>
+    <string name="forks">Forks :</string>
+    <string name="stars">Stars :</string>
+    <string name="language">Language :</string>
+    <string name="description">Description :</string>
+    <string name="repository_name">Repository Name :</string>
 </resources>

@@ -6,6 +6,7 @@ import android.os.Looper
 import android.text.TextUtils
 import android.view.View
 import com.bumptech.glide.Glide
+import com.example.myapplication.R
 import com.example.myapplication.data.model.RepositoryData
 import com.example.myapplication.databinding.ActivityRepositoryDetailBinding
 import com.example.myapplication.presentation.view.base.BaseActivity
@@ -21,7 +22,7 @@ class RepositoryDetailActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
         this.actionBar.apply {
-            title = "Repository Details"
+            title = getString(R.string.repo_detail_header)
         }
         val data = intent.extras?.get("data") as RepositoryData
         handler = Handler(Looper.getMainLooper())
