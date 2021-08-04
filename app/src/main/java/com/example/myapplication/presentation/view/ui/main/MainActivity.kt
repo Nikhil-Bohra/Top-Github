@@ -6,18 +6,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.BaseApplication
-import com.example.myapplication.R
 import com.example.myapplication.data.model.RepositoryData
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.presentation.view.base.BaseActivity
 import com.example.myapplication.presentation.view.ui.detail.RepositoryDetailActivity
 import com.example.myapplication.presentation.view.ui.main.adapter.RepoListAdapter
 import javax.inject.Inject
+import androidx.core.app.ActivityCompat
+import com.example.myapplication.R
+
 
 class MainActivity : BaseActivity(), MainCallback, RepoListAdapter.ListItemClickCallback  {
 
@@ -64,8 +64,14 @@ class MainActivity : BaseActivity(), MainCallback, RepoListAdapter.ListItemClick
     private fun navigateToDetailActivity(item: RepositoryData, view: View) {
         val intent = Intent( this, RepositoryDetailActivity::class.java)
         intent.putExtra("data", item)
-        val options = ActivityOptions
-            .makeSceneTransitionAnimation(this, view, "robot")
-        startActivity(intent, options.toBundle())
+
+        val activityOptions: ActivityOptionsCompat =
+            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                this@MainActivity,
+                androidx.core.util.Pair<View,String>(view, "VIEW_NAME_HEADER_IMAGE"))
+
+        // Now we can start the Activity, providing the activity options as a bundle
+        ActivityCompat.startActivity(this@MainActivity, intent, activityOptions.toBundle())
+        // END_INCLUDE(start_activity)
     }
 }

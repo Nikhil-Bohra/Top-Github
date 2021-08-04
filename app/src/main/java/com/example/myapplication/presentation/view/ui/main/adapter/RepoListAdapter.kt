@@ -46,12 +46,12 @@ class RepoListAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(repoItem: RepositoryData) {
-            Glide.with(binding.root).load(repoItem.avatars[0]).into(binding.imageView)
+            Glide.with(binding.root).load(repoItem.avatars[0]).into(binding.imageView1)
             binding.tvRepoName.text = repoItem.repoName
             binding.tvUserName.text = repoItem.stars
 
             binding.root.setOnClickListener {
-                itemCallback.onListItemClick(repoItem, binding.imageView)
+                itemCallback.onListItemClick(repoItem, binding.imageView1)
             }
         }
     }
